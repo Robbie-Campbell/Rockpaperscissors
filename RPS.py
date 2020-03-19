@@ -17,7 +17,7 @@ def results():
         answer = choice[decision]
 
         # The users decision
-        user = input("Rock Paper or Scissors?: ")
+        user = input("Rock, Paper or Scissors?: ")
         print("The computer chose: ", answer)
 
         # Create variables to asses win conditions
@@ -38,24 +38,23 @@ def results():
             result = lose
         print(result)
 
+        def scores():
+            print("The score is now:")
+            print("human - ", human)
+            print("computer - ", computer)
+
         # Increment the scores and print the current results
         if result == win:
             human = human + 1
-            print("The score is now:")
-            print("human - ", human)
-            print("computer - ", computer)
+            scores()
         elif result == lose:
             computer = computer + 1
-            print("The score is now:")
-            print("human - ", human)
-            print("computer - ", computer)
+            scores()
         else:
-            print("The score is now:")
-            print("human - ", human)
-            print("computer - ", computer)
+            scores()
             
         # Continue or break the loop
-        redo = input("Would you like to play again?: ")
+        redo = input("Would you like to play again? (y/n): ")
         if redo != "y":
             break
 
@@ -63,4 +62,5 @@ def results():
 # Call the function
 results()
 
+print("Thanks for playing!")
 

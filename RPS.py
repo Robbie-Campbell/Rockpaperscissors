@@ -17,45 +17,48 @@ def results():
         answer = choice[decision]
 
         # The users decision
-        user = input("Rock Paper or Scissors?: ")
-        print("The computer chose: ", answer)
+        user = input("Rock, Paper or Scissors?: ")
 
         # Create variables to asses win conditions
         draw = "It's a draw!"
         win = "You Win!"
         lose = "You Lose!"
-
-        # Decide if user won or lost
-        if user == answer:
-            result = draw
-        elif user == "Paper" and answer == "Rock":
-            result = win
-        elif user == "Scissors" and answer == "Paper":
-            result = win
-        elif user == "Rock" and answer == "Scissors":
-            result = win
+        # Make a condition to prevent incorrect input
+        if user == "Paper" or user == "Rock" or user == "Scissors":
+            print("The computer chose: ", answer)
+            # Decide if user won or lost
+            if user == answer:
+                result = draw
+            elif user == "Paper" and answer == "Rock":
+                result = win
+            elif user == "Scissors" and answer == "Paper":
+                result = win
+            elif user == "Rock" and answer == "Scissors":
+                result = win
+            else:
+                result = lose
+            print(result)
         else:
-            result = lose
-        print(result)
+            print("Please enter a valid input.")
+            continue
+
+        def scores():
+            print("The score is now:")
+            print("human - ", human)
+            print("computer - ", computer)
 
         # Increment the scores and print the current results
         if result == win:
             human = human + 1
-            print("The score is now:")
-            print("human - ", human)
-            print("computer - ", computer)
+            scores()
         elif result == lose:
             computer = computer + 1
-            print("The score is now:")
-            print("human - ", human)
-            print("computer - ", computer)
+            scores()
         else:
-            print("The score is now:")
-            print("human - ", human)
-            print("computer - ", computer)
-            
+            scores()
+
         # Continue or break the loop
-        redo = input("Would you like to play again?: ")
+        redo = input("Would you like to play again? (y/n): ")
         if redo != "y":
             break
 
@@ -63,4 +66,4 @@ def results():
 # Call the function
 results()
 
-
+print("Thanks for playing!")
